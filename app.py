@@ -1,3 +1,5 @@
+import os
+st.write("Current directory contents:", os.listdir("."))
 import streamlit as st
 import joblib
 import numpy as np
