@@ -11,7 +11,7 @@ st.write("Current directory contents:", os.listdir("."))
 # Load model and label encoder
 current_dir = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(current_dir, "compressed_weather_rf_model.pkl.gz")
-encoder_path = os.path.join(current_dir, "lable_encoder.pkl")
+encoder_path = os.path.join(current_dir, "label_encoder.pkl")
 
 model = joblib.load(model_path)
 label_encoder = joblib.load(encoder_path)
