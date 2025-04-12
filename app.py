@@ -7,8 +7,14 @@ import pandas as pd
 from datetime import datetime
 
 # Load model and label encoder
-model = joblib.load("compressed_weather_rf_model_pkl")
-label_encoder = joblib.load("lable_encoder.pkl")
+import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(current_dir, "compressed_weather_rf_model_pkl")
+encoder_path = os.path.join(current_dir, "lable_encoder.pkl")
+
+model = joblib.load(model_path)
+label_encoder = joblib.load(encoder_path)
 
 # Set page config
 st.set_page_config(page_title="Weather Predictor 🌦️", layout="centered")
