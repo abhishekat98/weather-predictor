@@ -1,21 +1,20 @@
 import os
-st.write("Current directory contents:", os.listdir("."))
 import streamlit as st
 import joblib
 import numpy as np
 import pandas as pd
 from datetime import datetime
 
-# Load model and label encoder
-import os
+# Debug: See current files
+st.write("Current directory contents:", os.listdir("."))
 
+# Load model and label encoder
 current_dir = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(current_dir, "compressed_weather_rf_model.pkl.gz")
 encoder_path = os.path.join(current_dir, "lable_encoder.pkl")
 
 model = joblib.load(model_path)
 label_encoder = joblib.load(encoder_path)
-
 
 # Set page config
 st.set_page_config(page_title="Weather Predictor 🌦️", layout="centered")
@@ -41,7 +40,6 @@ if st.button("🔍 Predict Weather"):
 
     st.success(f"🌈 **Predicted Weather Condition:** {predicted_label}")
 
-    # Save prediction to session state
     if 'history' not in st.session_state:
         st.session_state.history = []
 
