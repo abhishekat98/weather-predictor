@@ -5,8 +5,8 @@ import pandas as pd
 from datetime import datetime
 
 # Load model and label encoder
-model = joblib.load("weather_rf_model.pkl")
-label_encoder = joblib.load("label_encoder.pkl")
+model = joblib.load("compressed_weather_rf_model_pkl")
+label_encoder = joblib.load("lable_encoder.pkl")
 
 # Set page config
 st.set_page_config(page_title="Weather Predictor 🌦️", layout="centered")
@@ -29,9 +29,9 @@ if st.button("🔍 Predict Weather"):
     input_data = np.array([[temperature, humidity, wind_kph, wind_degree, pressure_mb, precip_mm, cloud]])
     prediction = model.predict(input_data)
     predicted_label = label_encoder.inverse_transform(prediction)[0]
-    
+
     st.success(f"🌈 **Predicted Weather Condition:** {predicted_label}")
-    
+
     # Save prediction to session state
     if 'history' not in st.session_state:
         st.session_state.history = []
