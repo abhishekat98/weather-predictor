@@ -4,9 +4,11 @@ import joblib
 import numpy as np
 import pandas as pd
 from datetime import datetime
+# 🔥 Set page config FIRST before any other streamlit commands
+st.set_page_config(page_title="Weather Predictor 🌦️", layout="centered")
 
-# Debug: See current files
-st.write("Current directory contents:", os.listdir("."))
+# Now it's safe to use other streamlit commands
+st.title("Weather Predictor")
 
 # Load model and label encoder
 current_dir = os.path.dirname(os.path.abspath(__file__))
