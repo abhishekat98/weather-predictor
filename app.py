@@ -19,7 +19,7 @@ model = joblib.load(model_path)
 label_encoder = joblib.load(encoder_path)
 
 # Set page config
-st.set_page_config(page_title="Weather Predictor 🌦️", layout="centered")
+
 
 # App title
 st.title("🌤️ Weather Condition Predictor")
